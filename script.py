@@ -7,13 +7,17 @@ url = "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Utilities/Geo
 
 # Parameters for the request
 # please refer to this page: https://developers.arcgis.com/rest/services-reference/enterprise/project/ for other geometry types
+# 1 call can only contain 1 type of geometry
 params = {
     "inSR": 31370,  # Input Spatial Reference Lambert72
     "outSR": 4326,  # Output Spatial Reference WGS84, use 3812 for Lambert2008
     "geometries": json.dumps(
         {
             "geometryType": "esriGeometryPoint",
-            "geometries": [{"x": 147876.83, "y": 183333.66}],
+            "geometries": [
+                {"x": 147876.83, "y": 183333.66},
+                {"x": 147303.02, "y": 176099.99},
+            ],
         }
     ),
     "transformation": json.dumps(
